@@ -499,7 +499,12 @@ function updatePrompt() {
     __chk_gitvar_status 'CLEAN'      '-eq 1'   -
     __add_status        "$ResetColor$GIT_PROMPT_SUFFIX"
 
-    NEW_PROMPT="$(gp_add_virtualenv_to_prompt)$PROMPT_START$($prompt_callback)$STATUS$PROMPT_END"
+    PROMPT_END="\[\e[38;5;245m\]\][`echo $?`]→ \[\e[38;5;195m\]\]"
+    NEW_PROMPT="
+\[\e[38;5;221m\]\]|--- [ `date` ] -----------------------------------------|
+$(gp_add_virtualenv_to_prompt)$PROMPT_START$($prompt_callback)$STATUS
+
+$PROMPT_END"
   else
     NEW_PROMPT="$EMPTY_PROMPT"
   fi
