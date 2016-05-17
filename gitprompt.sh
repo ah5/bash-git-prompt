@@ -502,7 +502,7 @@ function updatePrompt() {
     PROMPT_END="\[\e[38;5;245m\]\][`echo $?`]→ \[\e[38;5;195m\]\]"
     NEW_PROMPT="
 \[\e[38;5;221m\]\]|--- [ `date` ] -----------------------------------------|
-$(gp_add_virtualenv_to_prompt)$PROMPT_START$($prompt_callback)$STATUS
+$(gp_add_virtualenv_to_prompt)$PROMPT_START$($prompt_callback)$STATUS \[\e[38;5;245m\]\]~ \[$(tput setaf 2)\]`javahome | cut -d '/' -f5`
 
 $PROMPT_END"
   else
